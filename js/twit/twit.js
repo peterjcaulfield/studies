@@ -98,6 +98,9 @@
     // this is the function that is bound to the 'show more' links at the end of the page of tweets
     // note: .live jquery method is now deprecated should use .on instead
     // see: http://api.jquery.com/live/ for details on how to switch
+    // ** Examine this function in a js abstraction focusing on
+    // .on and .off calls
+    // how $this.data('_inc'); works here on first assignment to var i
     $('a.twitEntryShow', '#twitList' + _i).live('click', function (e) {
       e.preventDefault();
       // get reference to the clicked element
@@ -108,7 +111,7 @@
         var i = $this.data('_inc');
         // increment it
         i++;
-        // reassing it with new value
+        // reassiging it with new value
         $this.data('_inc', i);
         //check if we have are showing more or all
         if ($t.hasClass('twitEntryAll')) {
